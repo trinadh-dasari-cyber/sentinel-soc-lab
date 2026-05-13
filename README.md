@@ -1,16 +1,24 @@
 # 🛡️ Microsoft Sentinel SOC Home Lab
 
-**Conceptual SOC monitoring environment design using Microsoft Sentinel and Azure — academic research and lab study**
+**Academic project — SOC monitoring environment using Microsoft Sentinel as part of MS Cybersecurity coursework at University of Central Missouri**
 
 ---
 
 ## Overview
 
-This project documents my research and study of Microsoft Sentinel as a cloud-native SIEM platform. Through academic coursework and guided lab exercises, I explored how enterprise SOC environments are architected, how detection rules are engineered, and how incident response workflows operate at tier-1 and tier-2 levels.
+This project was completed as part of my MS Cybersecurity program at the University of Central Missouri. I designed and deployed a cloud-based SOC monitoring environment using Microsoft Sentinel in Azure, built KQL detection rules targeting real attack patterns, and practiced end-to-end incident response workflows simulating tier-1 and tier-2 SOC analyst operations.
 
 ---
 
-## Architecture Studied
+## Academic Context
+
+- **Institution:** University of Central Missouri
+- **Program:** MS Cybersecurity
+- **Focus:** SIEM engineering, cloud security, incident response
+
+---
+
+## Architecture
 
 - **Cloud Provider:** Microsoft Azure
 - **SIEM:** Microsoft Sentinel
@@ -19,55 +27,9 @@ This project documents my research and study of Microsoft Sentinel as a cloud-na
 
 ---
 
-## What Was Studied & Designed
+## What Was Done
 
-### Infrastructure Design
-- Studied how Windows VMs are provisioned in Azure as log sources
-- Researched centralized log ingestion pipeline configuration into Microsoft Sentinel
-- Reviewed data connector setup for structured event ingestion
-
-### Detection Engineering
-Researched and designed KQL analytic rules targeting:
-- **Failed authentication bursts** — detecting brute-force login patterns
-- **Off-hours logins** — alerting on access outside business hours
-- **Privilege escalation activity** — monitoring for suspicious role/group changes
-
-### Dashboards & Visualization
-- Studied Sentinel workbook design for visualizing security event trends
-- Researched alert volume mapping by severity, source, and time window
-
-### Incident Response Workflows
-- Studied end-to-end IR workflow: alert triage → investigation → timeline reconstruction → remediation documentation
-- Researched tier-1 and tier-2 SOC analyst handoff procedures
-
----
-
-## KQL Queries Developed
-
-**Failed authentication burst detection:**
-
-    SecurityEvent
-    | where EventID == 4625
-    | summarize FailCount = count() by Account, IpAddress, bin(TimeGenerated, 5m)
-    | where FailCount > 10
-    | order by FailCount desc
-
-**Off-hours login detection:**
-
-    SigninLogs
-    | where TimeGenerated between (datetime(00:00) .. datetime(06:00))
-    | where ResultType == 0
-    | project TimeGenerated, UserPrincipalName, IPAddress, Location
-
----
-
-## Skills Demonstrated
-
-`Microsoft Sentinel` `KQL` `Azure` `SIEM Engineering` `Detection Rules` `Incident Response` `Log Analysis` `Threat Detection`
-
----
-
-## Frameworks Referenced
-
-- MITRE ATT&CK: T1110 (Brute Force), T1078 (Valid Accounts), T1078.004 (Cloud Accounts)
-- NIST CSF 2.0: Detect (DE.AE), Respond (RS.AN)
+### Infrastructure
+- Provisioned Windows VMs in Azure as log sources
+- Configured Sentinel workspace with centralized log ingestion pipeline
+- Set u

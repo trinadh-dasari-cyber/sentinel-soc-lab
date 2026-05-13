@@ -44,4 +44,30 @@ Custom KQL analytic rules built for:
 
 ## Key KQL Queries
 
-```kql
+**Failed authentication burst detection:**
+
+    SecurityEvent
+    | where EventID == 4625
+    | summarize FailCount = count() by Account, IpAddress, bin(TimeGenerated, 5m)
+    | where FailCount > 10
+    | order by FailCount desc
+
+**Off-hours login detection:**
+
+    SigninLogs
+    | where TimeGenerated between (datetime(00:00) .. datetime(06:00))
+    | where ResultType == 0
+    | project TimeGenerated, UserPrincipalName, IPAddress, Location
+
+---
+
+## Skills Demonstrated
+
+`Microsoft Sentinel` `KQL` `Azure` `SIEM Engineering` `Detection Rules` `Incident Response` `Log Analysis` `Threat Detection`
+
+---
+
+## Frameworks Referenced
+
+- MITRE ATT&CK: T1110 (Brute Force), T1078 (Valid Accounts), T1078.004 (Cloud Accounts)
+- NIST CSF 2.0: Detect (DE.AE), Respond (RS.AN)

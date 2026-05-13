@@ -1,16 +1,16 @@
 # 🛡️ Microsoft Sentinel SOC Home Lab
 
-**A fully operational Security Operations Center (SOC) environment built in Microsoft Azure**
+**Conceptual SOC monitoring environment design using Microsoft Sentinel and Azure — academic research and lab study**
 
 ---
 
 ## Overview
 
-This project involved designing and deploying a cloud-based SOC monitoring environment from scratch using Microsoft Sentinel. The goal was to simulate real-world tier-1 and tier-2 SOC analyst workflows — from log ingestion through detection, alerting, and incident response documentation.
+This project documents my research and study of Microsoft Sentinel as a cloud-native SIEM platform. Through academic coursework and guided lab exercises, I explored how enterprise SOC environments are architected, how detection rules are engineered, and how incident response workflows operate at tier-1 and tier-2 levels.
 
 ---
 
-## Architecture
+## Architecture Studied
 
 - **Cloud Provider:** Microsoft Azure
 - **SIEM:** Microsoft Sentinel
@@ -19,30 +19,30 @@ This project involved designing and deploying a cloud-based SOC monitoring envir
 
 ---
 
-## What Was Built
+## What Was Studied & Designed
 
-### Infrastructure
-- Provisioned Windows VMs in Azure as log sources
-- Configured Sentinel workspace with centralized log ingestion pipeline
-- Set up data connectors for structured event ingestion
+### Infrastructure Design
+- Studied how Windows VMs are provisioned in Azure as log sources
+- Researched centralized log ingestion pipeline configuration into Microsoft Sentinel
+- Reviewed data connector setup for structured event ingestion
 
 ### Detection Engineering
-Custom KQL analytic rules built for:
+Researched and designed KQL analytic rules targeting:
 - **Failed authentication bursts** — detecting brute-force login patterns
 - **Off-hours logins** — alerting on access outside business hours
 - **Privilege escalation activity** — monitoring for suspicious role/group changes
 
 ### Dashboards & Visualization
-- Built Sentinel workbooks to visualize security event trends over time
-- Mapped alert volume by severity, source, and time window
+- Studied Sentinel workbook design for visualizing security event trends
+- Researched alert volume mapping by severity, source, and time window
 
-### Incident Response Simulation
-- Practiced full IR workflow: alert triage → investigation → timeline reconstruction → remediation documentation
-- Simulated tier-1 and tier-2 analyst handoff scenarios
+### Incident Response Workflows
+- Studied end-to-end IR workflow: alert triage → investigation → timeline reconstruction → remediation documentation
+- Researched tier-1 and tier-2 SOC analyst handoff procedures
 
 ---
 
-## Key KQL Queries
+## KQL Queries Developed
 
 **Failed authentication burst detection:**
 
